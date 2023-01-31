@@ -1,0 +1,25 @@
+From 8b111a35087b15607bd339f9c7ebbc2157e9eb2d Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Mon, 2 May 2022 22:38:45 +0200
+Subject: [PATCH] install.sh: dont rename themes using spaces
+
+---
+ install.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/install.sh b/install.sh
+index 5320c8c7..96a0a7d2 100755
+--- a/install.sh
++++ b/install.sh
+@@ -82,7 +82,7 @@ install_theme() {
+   install -m644 "${SRC_DIR}/src/index.theme"                                     "${THEME_DIR}"
+ 
+   # Update the name in index.theme
+-  sed -i "s/%NAME%/${THEME_NAME//-/ }/g"                                         "${THEME_DIR}/index.theme"
++  sed -i "s/%NAME%/${THEME_NAME}/g"                                         "${THEME_DIR}/index.theme"
+ 
+   if [ -z "${brightprefix}" ]; then
+     cp -r "${SRC_DIR}"/src/{16,22,24,32,symbolic}                                "${THEME_DIR}"
+-- 
+2.25.1
+

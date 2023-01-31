@@ -1,0 +1,11 @@
+[Unit]
+Description=Add flathub repo
+Wants=network.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flathub.sh
+
+[Install]
+WantedBy=multi-user.target

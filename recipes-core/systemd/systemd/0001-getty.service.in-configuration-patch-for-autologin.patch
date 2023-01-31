@@ -1,0 +1,25 @@
+From 58747fc4a60b26c3d770f7bb13264e6734583096 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Sun, 8 Jan 2023 02:17:48 +0100
+Subject: [PATCH] getty.service.in: configuration patch for autologin
+
+---
+ units/getty@.service.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/units/getty@.service.in b/units/getty@.service.in
+index 21d66f9367..318480e744 100644
+--- a/units/getty@.service.in
++++ b/units/getty@.service.in
+@@ -38,7 +38,7 @@ ConditionPathExists=/dev/tty0
+ # The '-o' option value tells agetty to replace 'login' arguments with an
+ # option to preserve environment (-p), followed by '--' for safety, and then
+ # the entered username.
+-ExecStart=-/sbin/agetty -o '-p -- \\u' --noclear - $TERM
++ExecStart=-/sbin/agetty -a @MAIN_USER@ %I 38400
+ Type=idle
+ Restart=always
+ RestartSec=0
+-- 
+2.34.1
+

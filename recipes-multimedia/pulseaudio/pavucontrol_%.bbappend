@@ -1,0 +1,2 @@
+# dont build libcanberra
+PACKAGECONFIG = ""
