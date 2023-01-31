@@ -25,6 +25,7 @@ WGUI_APPS ?= " \
 	librsvg-gtk \
 	mako \
 	nwg-launchers \
+	nwg-look \
 	pavucontrol \
 	swappy \
 	thunar \
