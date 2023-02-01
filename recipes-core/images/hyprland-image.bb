@@ -7,6 +7,7 @@ inherit core-image main-user
 WWINDOW_MANAGER ?= "hyprland"
 	
 WGUI_APPS ?= " \
+	azote \
 	blueman \
 	eog \
 	evince \
