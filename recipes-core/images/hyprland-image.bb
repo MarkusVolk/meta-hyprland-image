@@ -28,6 +28,7 @@ WGUI_APPS ?= " \
 	nwg-launchers \
 	nwg-look \
 	pavucontrol \
+	sirula \
 	swappy \
 	thunar \
 	waybar \
@@ -68,6 +69,7 @@ WCONSOLE_TOOLS ?= " \
 	util-linux-agetty \
 	util-linux-fstrim \
 	which \
+	wlr-randr \
 	xprop \
 	xz \
 "
@@ -100,6 +102,7 @@ WSYSTEM_CONF ?= " \
 	steam-udev-rules \
 	system-config \
 	system-config-flathub \
+	systemd-extra-utils \
 	tela-circle-icon-theme \
 	tzdata \
 	tzdata-europe \
@@ -125,6 +128,7 @@ WSERVICES ?= " \
 	cups-libimage \
 	fuse3 \
 	fuse3-utils \
+	geoclue \
 	libavahi-libevent \
 	libavahi-common \
 	libavahi-core \
