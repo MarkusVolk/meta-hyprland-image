@@ -60,6 +60,7 @@ WCONSOLE_TOOLS ?= " \
 	sed \
 	shadow \
 	sudo \
+	swaybg \
 	tar \
 	usbutils \
 	util-linux \
