@@ -1,1 +1,1 @@
-PORTAL_BACKENDS = "xdg-desktop-portal-wlr xdg-desktop-portal-gtk"
+PORTAL_BACKENDS ?= "xdg-desktop-portal-wlr xdg-desktop-portal-gtk"

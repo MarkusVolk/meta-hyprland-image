@@ -111,7 +111,6 @@ WSYSTEM_CONF ?= " \
 	wireless-regdb-static \
 	xdg-user-dirs \
 	xdg-desktop-portal \
-	xdg-desktop-portal-gtk \
 	xfce-polkit \
 	xkeyboard-config \
 	xorg-minimal-fonts \
