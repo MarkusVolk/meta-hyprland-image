@@ -7,7 +7,5 @@ do_install:append() {
 [General]
 DiscoverableTimeout = 60
 
-[Policy]
-AutoEnable=true
 EOF
 }
