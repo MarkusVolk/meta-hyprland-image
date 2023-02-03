@@ -112,7 +112,6 @@ WSYSTEM_CONF ?= " \
 	xdg-user-dirs \
 	xdg-desktop-portal \
 	xdg-desktop-portal-gtk \
-	xdg-desktop-portal-wlr \
 	xfce-polkit \
 	xkeyboard-config \
 	xorg-minimal-fonts \
@@ -140,6 +139,7 @@ WSERVICES ?= " \
 	ntpdate \
 	pipewire \
 	rpcbind \
+	rtkit \
 	samba \
 "
 
