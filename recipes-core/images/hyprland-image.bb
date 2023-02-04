@@ -69,6 +69,7 @@ WCONSOLE_TOOLS ?= " \
 	util-linux-agetty \
 	util-linux-fstrim \
 	which \
+	wf-recorder \
 	wlr-randr \
 	xprop \
 	xz \
@@ -140,6 +141,7 @@ WSERVICES ?= " \
 	rpcbind \
 	rtkit \
 	samba \
+	upower \
 "
 
 WCOMMERCIAL ?= " \
