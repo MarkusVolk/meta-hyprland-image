@@ -1,0 +1,25 @@
+From 0c7554aa54e181fce09e032de63887ba34f844e2 Mon Sep 17 00:00:00 2001
+From: MarkusVolk <f_l_k@t-online.de>
+Date: Tue, 7 Sep 2021 21:25:43 +0200
+Subject: [PATCH] kodi: enable drmprime
+
+Signed-off-by: MarkusVolk <f_l_k@t-online.de>
+
+---
+ system/settings/linux.xml    | 6 +++---
+ system/settings/settings.xml | 7 ++++---
+ 2 files changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/system/settings/linux.xml b/system/settings/linux.xml
+index 1f729fc60f..2adf0bcafc 100644
+--- a/system/settings/linux.xml
++++ b/system/settings/linux.xml
+@@ -153,7 +153,7 @@
+           <requirement>HAS_GLES</requirement>
+           <visible>false</visible>
+           <level>2</level>
+-          <default>false</default>
++          <default>true</default>
+           <control type="toggle" />
+         </setting>
+         <setting id="videoplayer.useprimedecoderforhw" type="boolean" parent="videoplayer.useprimedecoder" label="13438" help="36172">
