@@ -69,7 +69,7 @@ WCONSOLE_TOOLS ?= " \
 	util-linux-agetty \
 	util-linux-fstrim \
 	which \
-	wf-recorder \
+	${@bb.utils.contains('LICENSE_FLAGS_ACCEPTED', 'commercial', 'wf-recorder', '', d)} \
 	wlr-randr \
 	xprop \
 	xz \
