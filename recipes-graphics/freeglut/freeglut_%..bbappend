@@ -1,0 +1,2 @@
+PACKAGECONFIG:append = " gles wayland"
+
