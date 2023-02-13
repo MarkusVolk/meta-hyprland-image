@@ -1,1 +1,1 @@
-PACKAGECONFIG:append:class-target = " webp zstd"
+PACKAGECONFIG:append:class-target = " libdeflate webp zstd"
