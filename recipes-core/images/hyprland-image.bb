@@ -54,7 +54,10 @@ WCONSOLE_TOOLS ?= " \
 	iputils \
 	less \
 	libusb1 \
+	light \
 	nano \
+	pamixer \
+	playerctl \
 	procps \
 	psmisc \
 	pv \
@@ -71,6 +74,7 @@ WCONSOLE_TOOLS ?= " \
 	which \
 	${@bb.utils.contains('LICENSE_FLAGS_ACCEPTED', 'commercial', 'wf-recorder', '', d)} \
 	wlr-randr \
+	wob \
 	xprop \
 	xz \
 "
