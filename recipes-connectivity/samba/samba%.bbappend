@@ -1,6 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/samba:"
 
-RDEPENDS:${PN} += "glibc-gconv-ibm850"
+RDEPENDS:${PN}:libc-glibc += "glibc-gconv-ibm850"
 
 inherit main-user-base
 
