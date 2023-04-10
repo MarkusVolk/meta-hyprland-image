@@ -25,6 +25,7 @@ WGUI_APPS ?= " \
 	iwgtk \
 	librsvg-gtk \
 	mako \
+	nwg-displays \
 	nwg-launchers \
 	nwg-look \
 	pavucontrol \
@@ -32,6 +33,7 @@ WGUI_APPS ?= " \
 	swappy \
 	thunar \
 	waybar \
+	webp-pixbuf-loader \
 "
 
 WCONSOLE_TOOLS ?= " \
@@ -72,7 +74,6 @@ WCONSOLE_TOOLS ?= " \
 	util-linux-agetty \
 	util-linux-fstrim \
 	which \
-	${@bb.utils.contains('LICENSE_FLAGS_ACCEPTED', 'commercial', 'wf-recorder', '', d)} \
 	wlr-randr \
 	wob \
 	xprop \
@@ -83,21 +84,12 @@ WSYSTEM_CONF ?= " \
 	ca-certificates \
 	cups-filters \
 	cups-pk-helper \
-	glibc-binary-localedata-cs-cz \
-	glibc-binary-localedata-de-de \
-	glibc-binary-localedata-en-us \
-	glibc-binary-localedata-es-es \
-	glibc-binary-localedata-fr-fr \
-	glibc-binary-localedata-pl-pl \
-	glibc-binary-localedata-ru-ru \
-	glibc-charmap-utf-8 \
 	gtk4-printbackend-cups \
 	gtk4-printbackend-file \
 	libcanberra-pulse \
 	linux-firmware \
-	localedef \
 	nfs-export-public \
-	nordic-darker-theme \
+	adw-gtk3 \
 	packagegroup-fonts-truetype \
 	pulseaudio-user-service \
 	resize-helper \
@@ -112,7 +104,6 @@ WSYSTEM_CONF ?= " \
 	tzdata \
 	tzdata-europe \
 	udev-rules-udisks-hide-bootpart \
-	webp-pixbuf-loader \
 	wireless-regdb-static \
 	xdg-user-dirs \
 	xdg-desktop-portal \
@@ -149,6 +140,19 @@ WSERVICES ?= " \
 
 WCOMMERCIAL ?= " \
 	ffmpeg \
+	wf-recorder \
+"
+
+WGLIBC ?= " \
+	glibc-binary-localedata-cs-cz \
+	glibc-binary-localedata-de-de \
+	glibc-binary-localedata-en-us \
+	glibc-binary-localedata-es-es \
+	glibc-binary-localedata-fr-fr \
+	glibc-binary-localedata-pl-pl \
+	glibc-binary-localedata-ru-ru \
+	glibc-charmap-utf-8 \
+	localedef \
 "
 
 IMAGE_INSTALL += " \
@@ -157,5 +161,6 @@ IMAGE_INSTALL += " \
 	${WCONSOLE_TOOLS} \
 	${WSYSTEM_CONF} \
 	${WSERVICES} \
+	${@bb.utils.contains('TCLIBC', 'glibc', '${WGLIBC}', '', d)} \
 	${@bb.utils.contains('LICENSE_FLAGS_ACCEPTED', 'commercial', '${WCOMMERCIAL}', '', d)} \
 "
