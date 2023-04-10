@@ -28,6 +28,7 @@ do_install() {
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/waybar ${D}${MAIN_USER_HOMEDIR}/.local/share/nwg-look
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwggrid ${D}${MAIN_USER_HOMEDIR}/.config/sirula
+	install -d ${D}${MAIN_USER_DEFAULT_TARGET_WANTS}
 	install -m 0644 ${WORKDIR}/flathub.service ${D}${systemd_system_unitdir}
 	install -m 0755 ${WORKDIR}/flathub.sh ${D}${bindir}/flathub.sh
 	install -m 0644 ${WORKDIR}/bash_profile ${D}${MAIN_USER_HOMEDIR}/.bash_profile
@@ -42,13 +43,11 @@ do_install() {
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/grid.conf ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -m 0644 ${WORKDIR}/nwg-look/gsettings ${D}${MAIN_USER_HOMEDIR}/.local/share/nwg-look
-	install -m 0644 ${WORKDIR}/system-auth ${D}${sysconfdir}/pam.d	
+	install -m 0644 ${WORKDIR}/system-auth ${D}${sysconfdir}/pam.d
+	ln -fs ${systemd_user_unitdir}/flathub.service ${D}${MAIN_USER_DEFAULT_TARGET_WANTS}
+	touch ${D}${MAIN_USER_HOMEDIR}/.config/hypr/monitors.conf
         chown ${MAIN_USER_NAME}:${MAIN_USER_NAME} -R ${D}${MAIN_USER_HOMEDIR}
 }
-
-SYSTEMD_PACKAGES = "${PN}-flathub"
-SYSTEMD_SERVICE:${PN}-flathub = "flathub.service"
-SYSTEMD_AUTO_ENABLE:${PN}-flathub = "enable"
 
 PACKAGES += "${PN}-flathub"
 
