@@ -9,4 +9,5 @@ do_install:append() {
 	echo "XDG_SESSION_CLASS=user" >> ${D}${sysconfdir}/environment
 	echo "XDG_SESSION_TYPE=wayland" >> ${D}${sysconfdir}/environment
 	echo "XKB_DEFAULT_LAYOUT=en" >> ${D}${sysconfdir}/environment
+	echo "QT_STYLE_OVERRIDE=adwaita-dark" >> ${D}${sysconfdir}/environment
 }
