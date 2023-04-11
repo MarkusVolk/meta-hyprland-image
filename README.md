@@ -62,6 +62,7 @@ Currently it depends on the following layers:
   meta-openembedded/meta-xfce
   meta-security/meta-tpm
   meta-wayland
+  meta-qt6
 ```
 
 Depending on your machine eventually additional machine specific layers are reuqired.
