@@ -24,7 +24,8 @@ REQUIRED_DISTRO_FEATURES = "opengl wayland"
 SRC_URI = "gitsm://github.com/hyprwm/xdg-desktop-portal-hyprland.git;protocol=https;nobranch=1"
 
 S = "${WORKDIR}/git"
-SRCREV = "13db7db849e1e86289b3b0e296d47d08e4a80d56"
+SRCREV = "198d019583e332653d4e8dcca9439817b39b6a20"
+PV = "0.2.1"
 
 PACKAGECONFIG ?= "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', 'basu', d)}"
 
