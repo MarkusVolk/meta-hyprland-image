@@ -135,6 +135,7 @@ WSERVICES ?= " \
 	rpcbind \
 	rtkit \
 	samba \
+	samba-base \
 	upower \
 "
 
