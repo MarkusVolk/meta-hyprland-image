@@ -4,9 +4,10 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://../LICENSE;md5=e316e9609dd7672b87ff25b46b2cf3e1"
 
 # Note: meta-qt6 is needed
-DEPENDS = "qtbase qtwayland"
+DEPENDS = "qtbase"
+RDEPENDS:${PN} = "qtwayland"
 
-inherit qt6-cmake pkgconfig features_check
+inherit qt6-cmake features_check
 
 REQUIRED_DISTRO_FEATURES = "opengl wayland"
 

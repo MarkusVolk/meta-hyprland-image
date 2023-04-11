@@ -10,6 +10,7 @@ DEPENDS = " \
     wayland-protocols \
     libdrm \
     libinih \
+    util-linux \
     pipewire \
     virtual/libgbm \
 "
@@ -27,7 +28,7 @@ SRCREV = "13db7db849e1e86289b3b0e296d47d08e4a80d56"
 
 PACKAGECONFIG ?= "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', 'basu', d)}"
 
-PACKAGECONFIG[systemd] = "-Dsystemd=enabled -Dsd-bus-provider=libsystemd,-Dsystemd=disabled"
+PACKAGECONFIG[systemd] = "-Dsystemd=enabled -Dsd-bus-provider=libsystemd,-Dsystemd=disabled,systemd"
 PACKAGECONFIG[basu] = "-Dsd-bus-provider=basu,,basu"
 
 FILES:${PN} += "${systemd_user_unitdir} ${datadir}"
