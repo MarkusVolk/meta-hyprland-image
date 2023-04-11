@@ -1,1 +1,1 @@
-PORTAL_BACKENDS:append = " xdg-desktop-portal-wlr xdg-desktop-portal-gtk"
+PORTAL_BACKENDS:append = " xdg-desktop-portal-hyprland xdg-desktop-portal-gtk"
