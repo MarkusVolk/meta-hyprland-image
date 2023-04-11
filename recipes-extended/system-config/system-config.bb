@@ -22,14 +22,14 @@ SRC_URI = " \
 "
 
 do_install() {
-	install -d ${D}${systemd_system_unitdir} ${D}${bindir} ${D}${MAIN_USER_HOMEDIR}
+	install -d ${D}${systemd_user_unitdir} ${D}${bindir} ${D}${MAIN_USER_HOMEDIR}
 	install -d ${D}${sysconfdir}/pam.d ${D}${MAIN_USER_HOMEDIR}/.config/hypr
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/foot ${D}${MAIN_USER_HOMEDIR}/.config/swappy
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/waybar ${D}${MAIN_USER_HOMEDIR}/.local/share/nwg-look
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwggrid ${D}${MAIN_USER_HOMEDIR}/.config/sirula
 	install -d ${D}${MAIN_USER_DEFAULT_TARGET_WANTS}
-	install -m 0644 ${WORKDIR}/flathub.service ${D}${systemd_system_unitdir}
+	install -m 0644 ${WORKDIR}/flathub.service ${D}${systemd_user_unitdir}
 	install -m 0755 ${WORKDIR}/flathub.sh ${D}${bindir}/flathub.sh
 	install -m 0644 ${WORKDIR}/bash_profile ${D}${MAIN_USER_HOMEDIR}/.bash_profile
 	install -m 0644 ${WORKDIR}/bashrc ${D}${MAIN_USER_HOMEDIR}/.bashrc
@@ -52,7 +52,7 @@ do_install() {
 PACKAGES += "${PN}-flathub"
 
 FILES:${PN} = "${MAIN_USER_HOMEDIR} ${sysconfdir}"
-FILES:${PN}-flathub = "${bindir}/flathub.sh ${systemd_system_unitdir}/flathub.service"
+FILES:${PN}-flathub = "${bindir}/flathub.sh ${systemd_user_unitdir}/flathub.service"
 
 INSANE_SKIP:${PN} = "host-user-contaminated"
 
