@@ -7,5 +7,6 @@ SRC_URI:append = " \
     file://wlan.cfg \
     file://i2c.cfg \
     file://touchpad.cfg \
+    file://gfx.cfg \
 "
 
