@@ -18,8 +18,8 @@ do_install:append() {
     sed -i "s|/var/run|/run|" ${D}/etc/tmpfiles.d/samba.conf
 }
 
-# The services get started on demand. Avoid to start with system
-SYSTEMD_AUTO_ENABLE:${PN}-base = "disable"
+SYSTEMD_SERVICE:${PN}-base = "smb.service"
+SYSTEMD_AUTO_ENABLE:${PN}-base = "enable"
 
 # Add the main user to the Samba database if it does not already exist. Potentially unsafe, doesn't work with encrypted passwords
 pkg_postinst_ontarget:${PN}() {
