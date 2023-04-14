@@ -91,7 +91,6 @@ WSYSTEM_CONF ?= " \
 	nfs-export-public \
 	adw-gtk3 \
 	packagegroup-fonts-truetype \
-	pulseaudio-user-service \
 	resize-helper \
 	shared-mime-info \
 	shared-mime-info-data \
