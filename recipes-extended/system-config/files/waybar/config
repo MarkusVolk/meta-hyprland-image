@@ -5,8 +5,12 @@
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["custom/launch", "wlr/workspaces"],
+    "modules-center": ["hyprland/window"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "bluetooth", "clock", "custom/power"],
     // Modules configuration
+    "hyprland/window": {
+        "format": "{}"
+    },
     "wlr/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
