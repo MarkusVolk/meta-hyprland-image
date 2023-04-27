@@ -84,6 +84,7 @@ WSYSTEM_CONF ?= " \
 	ca-certificates \
 	cups-filters \
 	cups-pk-helper \
+	exfatprogs \
 	gtk4-printbackend-cups \
 	gtk4-printbackend-file \
 	libcanberra-pulse \
