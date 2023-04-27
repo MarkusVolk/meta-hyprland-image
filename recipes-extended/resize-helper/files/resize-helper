@@ -31,10 +31,13 @@ SGDISK=$(which sgdisk) || { echo "E: You must have sgdisk" && exit 1; }
 PARTED=$(which parted) || { echo "E: You must have parted" && exit 1; }
 PARTPROBE=$(which partprobe) || { echo "E: You must have partprobe" && exit 1; }
 RESIZE2FS=$(which resize2fs) || { echo "E: You must have resize2fs" && exit 1; }
+BTRFS=$(which btrfs) || { echo "E: You must have btrfs" && exit 1; }
 BLKID=$(which blkid) || { echo "E: You must have blkid" && exit 1; }
 
 # find root device
 ROOT_DEVICE=$(findmnt / -o source -n)
+# find root fstype
+ROOT_FSTYPE=$(findmnt / -o fstype -n)
 # prune root device (for example UUID)
 ROOT_DEVICE=$(realpath ${ROOT_DEVICE})
 # get the partition number and type
@@ -48,7 +51,8 @@ END_SIZE=$((DEVICE_SIZE - 1))
 
 # in case the root device is not on a partitioned media
 if [ "x$PART_ENTRY_NUMBER" = "x" ]; then
-	${RESIZE2FS} "${ROOT_DEVICE}"
+	[ "$ROOT_FSTYPE" = "ext4" ] && ${RESIZE2FS} "${ROOT_DEVICE}"
+	[ "$ROOT_FSTYPE" = "btrfs" ] && ${BTRFS} filesystem resize max /
 	exit 0
 fi
 
@@ -56,6 +60,9 @@ if [ "$PART_TABLE_TYPE" = "gpt" ]; then
 	${SGDISK} -e ${DEVICE}
 	${PARTPROBE}
 fi
-${PARTED} ${DEVICE} resizepart ${PART_ENTRY_NUMBER} 100%
+
+echo "yes" | ${PARTED} ---pretend-input-tty ${DEVICE} resizepart ${PART_ENTRY_NUMBER} 100%
 ${PARTPROBE}
-${RESIZE2FS} "${ROOT_DEVICE}"
+
+[ "$ROOT_FSTYPE" = "ext4" ] && ${RESIZE2FS} "${ROOT_DEVICE}"
+[ "$ROOT_FSTYPE" = "btrfs" ] && ${BTRFS} filesystem resize max /

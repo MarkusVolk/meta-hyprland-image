@@ -13,7 +13,7 @@ SRC_URI = " \
 inherit systemd
 
 
-RDEPENDS:${PN} += "e2fsprogs-resize2fs gptfdisk parted util-linux udev"
+RDEPENDS:${PN} += "btrfs-tools e2fsprogs-resize2fs gptfdisk parted util-linux udev"
 
 do_install() {
 	install -d ${D}${systemd_system_unitdir}
