@@ -16,7 +16,7 @@ DEPENDS = " \
 "
 
 RDEPENDS:${PN} = "hyprland-share-picker"
-RCONFLICTS:${PN} = "xdg-desktop-portal-wlr"
+RCONFLICTS:${PN} = "xdg-desktop-portal-wlr xdg-desktop-portal-gnome"
 
 inherit meson pkgconfig features_check
 REQUIRED_DISTRO_FEATURES = "opengl wayland"
@@ -24,8 +24,8 @@ REQUIRED_DISTRO_FEATURES = "opengl wayland"
 SRC_URI = "gitsm://github.com/hyprwm/xdg-desktop-portal-hyprland.git;protocol=https;nobranch=1"
 
 S = "${WORKDIR}/git"
-SRCREV = "198d019583e332653d4e8dcca9439817b39b6a20"
-PV = "0.2.1"
+SRCREV = "c0e233955568fbea4e859336f6d3d14d51294d7c"
+PV = "0.3.1"
 
 PACKAGECONFIG ?= "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', 'basu', d)}"
 

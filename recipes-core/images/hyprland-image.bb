@@ -18,7 +18,6 @@ WGUI_APPS ?= " \
 	gnome-software \
 	gnome-system-monitor \
 	gnome-text-editor \
-	gparted \
 	gsettings-desktop-schemas \
 	gvfs \
 	gvfsd-trash \
@@ -132,6 +131,7 @@ WSERVICES ?= " \
 	nfs-utils \
 	nfs-utils-client \
 	pipewire \
+	pulseaudio-user-service \
 	rpcbind \
 	rtkit \
 	samba \

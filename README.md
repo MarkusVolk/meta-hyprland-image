@@ -62,6 +62,8 @@ Currently it depends on the following layers:
   meta-openembedded/meta-xfce
   meta-security/meta-tpm
   meta-wayland
+  meta-image
+  meta-hyprland-image
   meta-qt6
 ```
 

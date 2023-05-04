@@ -1,2 +1,0 @@
-PACKAGECONFIG = "egl-gles2"
-

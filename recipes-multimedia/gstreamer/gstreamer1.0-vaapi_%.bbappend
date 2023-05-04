@@ -1,2 +1,0 @@
-PACKAGECONFIG_GL = "egl"
-
