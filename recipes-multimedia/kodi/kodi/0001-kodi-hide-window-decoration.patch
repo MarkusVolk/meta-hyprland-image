@@ -1,0 +1,36 @@
+From c69f20e2aea218e30806eeec4d33d584637b29ad Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Fri, 3 Feb 2023 08:42:19 +0100
+Subject: [PATCH] kodi: hide window decoration
+
+While this is quite useful for window managers that use client-side decoration,
+it's uneeded for ones that use server-side decoration. In the case of hyprland
+its also quite ugly looking.
+
+Window decoration for wayland can not be disabled in a simple way. In order
+to have a maintainable patch, just hide it.
+---
+ xbmc/windowing/wayland/WindowDecorator.cpp | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/xbmc/windowing/wayland/WindowDecorator.cpp b/xbmc/windowing/wayland/WindowDecorator.cpp
+index 9f61481ef13..493107ae81a 100644
+--- a/xbmc/windowing/wayland/WindowDecorator.cpp
++++ b/xbmc/windowing/wayland/WindowDecorator.cpp
+@@ -47,10 +47,10 @@ constexpr int BUTTON_INNER_SEPARATION{4};
+ constexpr int BUTTON_SIZE{21};
+ 
+ constexpr std::uint32_t TRANSPARENT{0x00000000u};
+-constexpr std::uint32_t BORDER_COLOR{0xFF000000u};
+-constexpr std::uint32_t BUTTON_COLOR_ACTIVE{0xFFFFFFFFu};
+-constexpr std::uint32_t BUTTON_COLOR_INACTIVE{0xFF777777u};
+-constexpr std::uint32_t BUTTON_HOVER_COLOR{0xFF555555u};
++constexpr std::uint32_t BORDER_COLOR{0x00000000u};
++constexpr std::uint32_t BUTTON_COLOR_ACTIVE{0x00000000u};
++constexpr std::uint32_t BUTTON_COLOR_INACTIVE{0x00000000u};
++constexpr std::uint32_t BUTTON_HOVER_COLOR{0x00000000u};
+ 
+ static_assert(BUTTON_SIZE <= TOP_BAR_HEIGHT - BUTTONS_EDGE_DISTANCE * 2, "Buttons must fit in top bar");
+ 
+-- 
+2.34.1
