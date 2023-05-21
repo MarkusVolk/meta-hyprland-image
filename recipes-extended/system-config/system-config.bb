@@ -54,5 +54,3 @@ PACKAGES += "${PN}-flathub"
 FILES:${PN} = "${MAIN_USER_HOMEDIR} ${sysconfdir}"
 FILES:${PN}-flathub = "${bindir}/flathub.sh ${systemd_user_unitdir}/flathub.service"
 
-INSANE_SKIP:${PN} = "host-user-contaminated"
-
