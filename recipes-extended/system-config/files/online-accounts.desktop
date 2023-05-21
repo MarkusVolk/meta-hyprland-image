@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Online Accounts
+Icon=control-center2
+Exec=online-accounts
+Terminal=false
+Type=Application
+Comment=Online Accounts Settings
+Categories=GTK;GNOME;Settings

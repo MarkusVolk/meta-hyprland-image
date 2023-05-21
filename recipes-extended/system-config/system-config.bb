@@ -19,11 +19,13 @@ SRC_URI = " \
 	file://nwg-launchers/nwggrid/terminal \
 	file://nwg-launchers/nwggrid/grid.conf \
 	file://nwg-look/gsettings \
+	file://online-accounts.desktop \
 "
 
 do_install() {
 	install -d ${D}${systemd_user_unitdir} ${D}${bindir} ${D}${MAIN_USER_HOMEDIR}
 	install -d ${D}${sysconfdir}/pam.d ${D}${MAIN_USER_HOMEDIR}/.config/hypr
+	install -d ${D}${datadir}/applications
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/foot ${D}${MAIN_USER_HOMEDIR}/.config/swappy
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/waybar ${D}${MAIN_USER_HOMEDIR}/.local/share/nwg-look
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
@@ -44,6 +46,9 @@ do_install() {
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -m 0644 ${WORKDIR}/nwg-look/gsettings ${D}${MAIN_USER_HOMEDIR}/.local/share/nwg-look
 	install -m 0644 ${WORKDIR}/system-auth ${D}${sysconfdir}/pam.d
+	install -m 0644 ${WORKDIR}/online-accounts.desktop ${D}${datadir}/applications
+	echo "XDG_CURRENT_DESKTOP=GNOME gnome-control-center online-accounts" > ${D}${bindir}/online-accounts
+	chmod +x ${D}${bindir}/online-accounts
 	ln -fs ${systemd_user_unitdir}/flathub.service ${D}${MAIN_USER_DEFAULT_TARGET_WANTS}
 	touch ${D}${MAIN_USER_HOMEDIR}/.config/hypr/monitors.conf
         chown ${MAIN_USER_NAME}:${MAIN_USER_NAME} -R ${D}${MAIN_USER_HOMEDIR}
@@ -51,6 +56,6 @@ do_install() {
 
 PACKAGES += "${PN}-flathub"
 
-FILES:${PN} = "${MAIN_USER_HOMEDIR} ${sysconfdir}"
+FILES:${PN} = "${MAIN_USER_HOMEDIR} ${sysconfdir} ${datadir} ${bindir}"
 FILES:${PN}-flathub = "${bindir}/flathub.sh ${systemd_user_unitdir}/flathub.service"
 
