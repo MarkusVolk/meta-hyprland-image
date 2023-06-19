@@ -11,7 +11,6 @@ SRC_URI = " \
 	file://system-auth \
 	file://hyprland/hyprland.conf \
 	file://foot/foot.ini \
-	file://sirula/config.toml \
 	file://swappy/config \
 	file://waybar/style.css \
 	file://waybar/config \
@@ -37,7 +36,6 @@ do_install() {
 	install -m 0644 ${WORKDIR}/bashrc ${D}${MAIN_USER_HOMEDIR}/.bashrc
 	install -m 0644 ${WORKDIR}/hyprland/hyprland.conf ${D}${MAIN_USER_HOMEDIR}/.config/hypr
 	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${MAIN_USER_HOMEDIR}/.config/foot
-	install -m 0644 ${WORKDIR}/sirula/config.toml ${D}${MAIN_USER_HOMEDIR}/.config/sirula
 	install -m 0644 ${WORKDIR}/swappy/config ${D}${MAIN_USER_HOMEDIR}/.config/swappy
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${MAIN_USER_HOMEDIR}/.config/waybar
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${MAIN_USER_HOMEDIR}/.config/waybar

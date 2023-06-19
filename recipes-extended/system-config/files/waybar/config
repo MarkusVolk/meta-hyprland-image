@@ -19,7 +19,7 @@
     },
     "custom/launch":{
 	"format": "",
-	"on-click":"sirula",
+	"on-click":"nwggrid",
 	"tooltip": false,
     },
     "custom/power":{
