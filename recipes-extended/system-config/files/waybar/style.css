@@ -67,6 +67,7 @@ window#waybar.chromium {
 }
 
 #custom-launch,
+#custom-weather,
 #custom-power,
 #clock,
 #bluetooth,
@@ -121,6 +122,12 @@ window#waybar.chromium {
 #custom-launch {
     background-color: transparent;
     color: #FFFFFF;
+}
+
+#custom-weather {
+    border-radius: 0px 10px 10px 0px;
+    border-right: 0px;
+    margin-left: 0px;
 }
 
 #custom-power {

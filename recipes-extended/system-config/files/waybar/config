@@ -1,21 +1,42 @@
 {
     "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["custom/launch", "wlr/workspaces"],
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "modules-left": ["custom/launch","wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "bluetooth", "clock", "custom/power"],
+    "modules-right": ["pulseaudio","network","cpu","memory","temperature","bluetooth","custom/weather","clock","custom/power"],
     // Modules configuration
     "hyprland/window": {
         "format": "{}"
     },
     "wlr/workspaces": {
-        "format": "{icon}",
+        "disable-scroll": true,
+        "all-outputs": true,
         "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
+    },
+   "custom/weather" : {
+        //shows the current weather and forecast
+        "tooltip" : true,
+        "format" : "⛅",
+        "interval" : 30,
+        "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type" : "json"
     },
     "custom/launch":{
 	"format": "",
@@ -28,9 +49,21 @@
 	"tooltip": false,
     },
     "clock": {
-        // "timezone": "America/New_York",
+        "format": "{:%H:%M} ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+                "calendar": {
+                "mode"          : "month",
+                "weeks-pos"     : "right",
+                "on-scroll"     : 1,
+                "format": {
+                            "months":     "<span color='#ffead3'><b>{}</b></span>",
+                            "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                            "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                            "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                            "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                            }
+                },
+	"on-click": "gnome-calendar",
     },
     "bluetooth": {
         "format": "  ",

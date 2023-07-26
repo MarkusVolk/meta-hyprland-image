@@ -14,6 +14,7 @@ SRC_URI = " \
 	file://swappy/config \
 	file://waybar/style.css \
 	file://waybar/config \
+	file://waybar/scripts/waybar-wttr.py \
 	file://nwg-launchers/nwgbar/bar.json \
 	file://nwg-launchers/nwggrid/terminal \
 	file://nwg-launchers/nwggrid/grid.conf \
@@ -26,7 +27,7 @@ do_install() {
 	install -d ${D}${sysconfdir}/pam.d ${D}${MAIN_USER_HOMEDIR}/.config/hypr
 	install -d ${D}${datadir}/applications
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/foot ${D}${MAIN_USER_HOMEDIR}/.config/swappy
-	install -d ${D}${MAIN_USER_HOMEDIR}/.config/waybar ${D}${MAIN_USER_HOMEDIR}/.local/share/nwg-look
+	install -d ${D}${MAIN_USER_HOMEDIR}/.config/waybar/scripts ${D}${MAIN_USER_HOMEDIR}/.local/share/nwg-look
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
 	install -d ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwggrid ${D}${MAIN_USER_HOMEDIR}/.config/sirula
 	install -d ${D}${MAIN_USER_DEFAULT_TARGET_WANTS}
@@ -39,6 +40,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/swappy/config ${D}${MAIN_USER_HOMEDIR}/.config/swappy
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${MAIN_USER_HOMEDIR}/.config/waybar
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${MAIN_USER_HOMEDIR}/.config/waybar
+	install -m 0755 ${WORKDIR}/waybar/scripts/waybar-wttr.py ${D}${MAIN_USER_HOMEDIR}/.config/waybar/scripts
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwgbar/bar.json ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/grid.conf ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${MAIN_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
@@ -48,7 +50,7 @@ do_install() {
 	echo "XDG_CURRENT_DESKTOP=GNOME gnome-control-center online-accounts" > ${D}${bindir}/online-accounts
 	chmod +x ${D}${bindir}/online-accounts
 	ln -fs ${systemd_user_unitdir}/flathub.service ${D}${MAIN_USER_DEFAULT_TARGET_WANTS}
-	touch ${D}${MAIN_USER_HOMEDIR}/.config/hypr/monitors.conf
+	echo  "monitor=,highres,auto,2" > ${D}${MAIN_USER_HOMEDIR}/.config/hypr/monitors.conf
         chown ${MAIN_USER_NAME}:${MAIN_USER_NAME} -R ${D}${MAIN_USER_HOMEDIR}
 }
 
