@@ -8,7 +8,3 @@ require recipes-core/images/image.inc
 require recipes-core/images/wlroots.inc
 
 WWINDOW_MANAGER ?= "hyprland"
-
-WSYSTEM_CONF:append = " \
-	xfce-polkit \
-"
