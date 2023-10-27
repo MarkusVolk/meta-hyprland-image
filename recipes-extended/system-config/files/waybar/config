@@ -40,7 +40,7 @@
     },
     "custom/launch":{
 	"format": "",
-	"on-click":"nwggrid",
+	"on-click":"/bin/bash -c nwggrid -client",
 	"tooltip": false,
     },
     "custom/power":{
